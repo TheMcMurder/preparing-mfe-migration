@@ -4,28 +4,29 @@
 
 ---
 
-# Can I have a documentation version of this instead?
+# Documentation
 
 https://www.notion.so/workfront/Migrating-off-of-common-deprecated-npm-packages-that-Quicksilver-provides-a4712975c88c4d7fa8bd1c0415126b1e
 
 ---
 
-# What this presetation about
+# What this presentation about {class="text-red-600"}
 
-## What we will cover
+## What we will cover {class="text-gray-500"}
 - Why this has to happen by end of March 2022
 - What packages need to be migrated away from
 - Suggested workflow
 - Next Beta of MFE migration
 
-## What we will not cover
+## What we will not cover {class="text-gray-500"}
 - Exactly which teams will be part of the next beta migration
 
 ---
 
-# Why are these changes needed?
+## Why are these changes needed?
 
 import NowAndLater from './images/now-later.png'
+
 <img src={NowAndLater} alt="" className="" />
 
 ---
@@ -34,21 +35,29 @@ import NowAndLater from './images/now-later.png'
 
 ---
 
-# Why React context can't solve all our problems
-
----
-
 # Why March 2022
+- Far enough out to allow teams to plan for the work
+- Close enough that it won't slow down MFE migrations too much
 
 ---
 
 # What packages need to be migrated away from
 
+- `CurrentPageContext from "@quicksilver/context"`
+- `CurrentUserContext from "@quicksilver/context"`
+- `useCurrentUserContext from "@quicksilver/context"`
+- `useCurrentCustomerContext from "@quicksilver/context"`
+- `useSplit from "@quicksilver/context"`
+- `@quicksilver/nav`
+- `@workfront/react-i18n`
+- `@marvel/api`
+- any direct usages of sentry
+
 ---
 
 # Suggested workflow
 
-1. Identify team projects that use the packages
+1. Identify team projects that use NWE deprecated packages
 2. Add tasks for the work your team needs to complete
 3. Use provided codemods to migrate
 4. Validate
@@ -58,59 +67,10 @@ import NowAndLater from './images/now-later.png'
 
 # Next Beta of MFE migration
 
-- Balancing act image
+import Triangle from './images/mfe-triangle.png'
 
+<img src={Triangle} alt="" className="" />
 
----
-
-### Code blocks are supported!
-
-```js
-// With syntax highlighting!
-let a = "test";
-
-const b = false;
-
-function hello(greeting = "world") {
-  return `Hello ${world}!`;
-}
-```
-
----
-
-# `Appear` component
-
-Use keyboard arrow up and down to make elements appear
-
-- <Appear>List item 1</Appear>
-- <Appear>List item 2</Appear>
-- <Appear>List item 3</Appear>
-
----
-
-# Data in a table
-
-| A   | B   | C   |
-| --- | --- | --- |
-| 1A  | 1B  | 1C  |
-| 2A  | 2B  | 2C  |
-| 3A  | 3B  | 3C  |
-
----
-
-<div className="mx-auto w-auto sm:w-3/4 lg:w-1/2">
-
-# Aside
-
-An `aside` element is usually more appropriate than the Markdown `blockquote`. This component should be used in those instances.
-
-<Aside>Here is some relevant, tangential information.</Aside>
-<Aside info>Here is some indirectly related to callout.</Aside>
-<Aside warning>Here is a warning you should look at!</Aside>
-
-</div>
-
----
 
 ## Thanks! 
 
